@@ -1,0 +1,48 @@
+﻿
+server:
+    port: 8859
+    tomcat:
+      accesslog:
+        buffered: true
+        directory: D:/logs
+        enabled: true
+        file-date-format: .yyyy-MM-dd
+        pattern: common
+        prefix: access_log
+        rename-on-rotate: false
+        request-attributes-enabled: false
+        rotate: true
+        suffix: .log
+
+
+spring:
+    datasource:
+        name: test2
+        url: jdbc:mysql://180.76.135.14:3306/gshf_nydp?serverTimezone=GMT%2B8
+        username: root
+        password: wlzl@68
+        driver-class-name: com.mysql.jdbc.Driver
+    thymeleaf:
+        prefix: classpath:/templates/
+        suffix: .html
+        mode: HTML5
+        encoding: UTF-8
+        cache: false
+        enabled: true
+        paths: /**
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.example.nydp.entity  # 注意：对应实体类的路径
+
+hibernate:
+        ddl-auto: update
+        naming:
+          physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        show-sql: true
+logging.level.org.hibernate.SQL: DEBUG
+logging:
+  config: classpath:logback-spring.xml
+  path: D:/logs/data
+  file: D:/logs/data/dataInfo.log
+# config logback
